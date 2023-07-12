@@ -21,3 +21,5 @@ if __name__ == '__main__':
         data = response.json()
         print(f'JSON : {data}')
 
+        url_d = data["_embedded"]["items"][2]["file"]
+        requests.get(url_d)
