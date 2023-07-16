@@ -1,5 +1,4 @@
 import requests
-import datetime
 
 
 def search_superhero(url_super, *superheroes_search):
