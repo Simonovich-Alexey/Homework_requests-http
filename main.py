@@ -48,27 +48,5 @@ if __name__ == '__main__':
     print(search_superhero("https://akabab.github.io/superhero-api/api/all.json", "Hulk", "Captain America", "Thanos"))
 
     path_to_file = 'file_to_disc/36182.jpg'
-    # uploader = YaUploader(get_token_disc())
-    # result = uploader.upload(path_to_file)
-
-    date_now = datetime.datetime.now()
-    date_now_unix = int(date_now.timestamp())
-    two_days_ago_unix = date_now_unix - 172800
-    print(date_now_unix, type(date_now_unix))
-    print(two_days_ago_unix, type(two_days_ago_unix)) # 1689319970
-
-    while date_now_unix > two_days_ago_unix:
-        url_stack = 'https://api.stackexchange.com/2.3/questions/'
-        params = {'sort': 'creation', 'tagged': 'python', 'fromdate': two_days_ago_unix, 'todate': date_now_unix,
-              'site': 'stackoverflow'}
-        responce_t = requests.get(url_stack, params=params)
-        data = responce_t.json()
-        a = data['items']
-        for i in a:
-            print(i['title'])
-            print(i['tagged'])
-            print(i['creation_date'])
-            if date_now_unix < two_days_ago_unix:
-                break
-            date_now_unix = i['creation_date']
-            # print(i['link'])
+    uploader = YaUploader(get_token_disc())
+    result = uploader.upload(path_to_file)
